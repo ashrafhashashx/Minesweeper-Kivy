@@ -13,7 +13,7 @@ from game_button import GameButton
 from play_sound import play_sound, Sounds
 from configuration import (
     MAX_COLS, MAX_ROWS, INITIAL_COLS, INITIAL_MINES, INITIAL_ROWS, MIN_ROWS, MIN_COLS, MIN_MINES, MAX_MINES,
-    BUTTON_WIDTH_FACTOR, BUTTON_HEIGHT_FACTOR, meaningful_number_of_max_mines
+    BUTTON_WIDTH_FACTOR, BUTTON_HEIGHT_FACTOR, reasonable_max_number_of_mines
 )
 
 # Prevent red dots from appearing when right-clicking
@@ -64,7 +64,7 @@ class MenuWindow(Screen):
             num_cols: int = menu_screen.cols_slider.value
             num_mines: int = menu_screen.mines_slider.value
             # Validate mines value and max value
-            num_max_mines: int = meaningful_number_of_max_mines(num_rows, num_cols)
+            num_max_mines: int = reasonable_max_number_of_mines(num_rows, num_cols)
             num_mines = min(num_mines, num_max_mines)
             # Update mines slider:
             menu_screen.mines_slider.max = num_max_mines

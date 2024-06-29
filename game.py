@@ -1,6 +1,6 @@
 from enum import Enum
 from random import sample
-from configuration import meaningful_number_of_max_mines
+from configuration import reasonable_max_number_of_mines
 from game_button import GameButton
 from play_sound import play_sound, Sounds
 
@@ -24,7 +24,7 @@ class Game:
 
         assert num_rows > 0
         assert num_cols > 0
-        assert 0 <= num_mines <= meaningful_number_of_max_mines(num_rows, num_cols)
+        assert 0 <= num_mines <= reasonable_max_number_of_mines(num_rows, num_cols)
         assert button_size > 0
 
         self.most_recently_pressed_button = GameButton(-1, -1, -1)  # GameButton
