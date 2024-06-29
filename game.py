@@ -18,9 +18,9 @@ class Game:
             button_size: float,
             on_press
     ):
-        self.num_rows = num_rows
-        self.num_cols = num_cols
-        self.num_mines = num_mines
+        self.num_rows: int = num_rows
+        self.num_cols: int = num_cols
+        self.num_mines: int = num_mines
 
         assert num_rows > 0
         assert num_cols > 0
@@ -134,7 +134,8 @@ class Game:
 
         # Choose a random sample of these based on the preset requested number of mines. These will be
         # the coordinates of buttons containing mines.
-        will_have_mine = sample(to_choose_from, self.num_mines)
+        # TODO I do not know why I have to add this 'round'. It won't work without it.
+        will_have_mine = sample(to_choose_from, round(self.num_mines))
         for (i, j) in will_have_mine:
             b = self.buttons[i][j]
             b.has_mine = True
