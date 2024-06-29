@@ -27,7 +27,6 @@ MINE_SYMBOL = 'X'
 FLAG_SYMBOL = '!'
 
 
-# noinspection SpellCheckingInspection
 class Coloring(Enum):
     NORMALIZE = ('lightblue', 'black')
     FLAG = ('red', 'black')
