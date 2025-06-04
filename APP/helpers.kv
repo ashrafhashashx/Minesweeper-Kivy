@@ -1,0 +1,44 @@
+<KeyLabel@Label>:
+    #text_size: self.size
+    halign: 'center' # horizontal align
+    valign: 'middle' # vertical align
+    font_size: 30
+
+    background_color : 0, 0, 1, 0.2
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+<KeyLabelSmall@KeyLabel>:
+    font_size: 25
+
+<ValueLabel@KeyLabel>:
+    font_name: 'lcd'
+    font_size: 43
+
+<SimpleButton@Button>:
+    font_size: 25
+
+<SimpleToggleButton@ToggleButton>:
+    font_size: 25
+# Horizontal Box
+<HBox@BoxLayout>:
+    padding: 4
+    spacing: 4
+# Vertical Box
+<VBox@BoxLayout>:
+    orientation: 'vertical'
+
+<SimpleSlider@Slider>:
+    track_color_active: 'grey'
+    thumb_color_active: 'darkblue'
+    thumb_color_inactive: 'black'
+    hint_bg_color: 'black'
+    hint_text_color: 'white'
+    value_track: True
+    value_track_color: [1, 0, 0, 1]
+    size_hint_x: 1
+    step: 1
+

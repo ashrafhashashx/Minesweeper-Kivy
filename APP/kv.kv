@@ -1,0 +1,77 @@
+#:include helpers.kv
+
+MyWindowManager:
+    MenuWindow:
+    GameWindow:
+
+<MenuWindow>:
+    name: 'menu_window'
+    rows_slider: rows_slider
+    cols_slider: cols_slider
+    mines_slider: mines_slider
+    rows_label: rows_label
+    cols_label: cols_label
+    mines_label: mines_label
+    VBox:
+        Label:
+            text: 'Welcome to Minesweeper'
+            font_size: 45
+            font_name: 'breitkopf'
+        HBox:
+            SimpleSlider:
+                id: rows_slider
+                on_value: root.slider_on_value('rows_update', *args)
+            ValueLabel:
+                size_hint_x: 0.3
+                id: rows_label
+                text: 'Number of rows = 5'
+                font_size: 35
+        HBox:
+            SimpleSlider:
+                id: cols_slider
+                on_value: root.slider_on_value('cols_update', *args)
+            ValueLabel:
+                size_hint_x: 0.3
+                id: cols_label
+                text: 'Number of cols = 7'
+                font_size: 35
+        HBox:
+            SimpleSlider:
+                id: mines_slider
+                on_value: root.slider_on_value('mines_update', *args)
+            ValueLabel:
+                size_hint_x: 0.3
+                id: mines_label
+                text: 'Number of mines = 5'
+                font_size: 35
+        SimpleButton:
+            text: 'Start'
+            on_release:
+                root.manager.transition.direction = 'left'
+                app.root.current = 'game_window'
+                root.start_game()
+
+<GameWindow>:
+    grid: grid
+    remaining_label: remaining_label
+    name: 'game_window'
+    HBox:
+        VBox:
+            size_hint_x: 0.1
+            SimpleButton:
+                size_hint_y: 0.5
+                text: 'Restart'
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    app.root.current = 'menu_window'
+                    root.restart_game()
+            KeyLabelSmall:
+                size_hint_y: 0.25
+                text: 'Remaining:'
+            ValueLabel:
+                size_hint_y: 0.25
+                id: remaining_label
+        GridLayout:
+            id: grid
+            size_hint_x: 0.93
+
