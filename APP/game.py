@@ -1,8 +1,8 @@
 from enum import Enum
 from random import sample
 from APP.configuration import reasonable_max_number_of_mines
-from game_button import GameButton
-from play_sound import play_sound, Sounds
+from APP.game_button import GameButton
+from APP.play_sound import play_sound, Sounds
 
 
 class Result(Enum):

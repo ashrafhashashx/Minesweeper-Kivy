@@ -184,11 +184,11 @@ class MyApp(MDApp):
 
 
 LabelBase.register(name='lcd',
-                   fn_regular='fonts/digital-7.ttf')
+                   fn_regular='RESOURCES/fonts/digital-7.ttf')
 LabelBase.register(name='breitkopf',
-                   fn_regular='fonts/BreitkopfFraktur.ttf')
+                   fn_regular='RESOURCES/fonts/BreitkopfFraktur.ttf')
 LabelBase.register(name='lcd',
-                   fn_regular='fonts/steelfish eb.otf')
+                   fn_regular='RESOURCES/fonts/steelfish eb.otf')
 
 if __name__ == '__main__':
     MyApp().run()
